@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Ordering System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function placeOrder() {
+            const itemName = document.getElementById('itemName').value.trim();
+            const quantity = document.getElementById('quantity').value.trim();
+            const address = document.getElementById('address').value.trim();
+            
+            if (!itemName || !quantity || !address) {
+                alert('Please fill out all fields.');
+                return;
+            }
+            
+            const orderSummary = document.getElementById('orderSummary');
+            orderSummary.innerHTML = `<h3 class='text-xl font-bold'>Order Summary</h3>
+            <p class='text-gray-700 mt-4'><strong>Item:</strong> ${itemName}</p>
+            <p class='text-gray-700'><strong>Quantity:</strong> ${quantity}</p>
+            <p class='text-gray-700'><strong>Shipping Address:</strong> ${address}</p>
+            <p class='text-green-600 font-bold mt-4'>Your order has been placed successfully!</p>`;
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-500 p-4 text-center">
+        <h1 class="text-white text-2xl font-bold">Online Ordering System</h1>
+    </nav>
+
+    <!-- Order Input Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-8">Place Your Order</h2>
+            <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-8">
+                <label for="itemName" class="block text-gray-700 font-bold mb-2">Item Name</label>
+                <input type="text" id="itemName" class="w-full p-3 border rounded-lg mb-4" placeholder="Enter item name">
+                
+                <label for="quantity" class="block text-gray-700 font-bold mb-2">Quantity</label>
+                <input type="number" id="quantity" class="w-full p-3 border rounded-lg mb-4" placeholder="Enter quantity">
+                
+                <label for="address" class="block text-gray-700 font-bold mb-2">Shipping Address</label>
+                <textarea id="address" class="w-full p-3 border rounded-lg mb-4" rows="3" placeholder="Enter your address"></textarea>
+                
+                <button onclick="placeOrder()" class="w-full px-4 py-2 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600">
+                    Place Order
+                </button>
+            </div>
+            <div id="orderSummary" class="mt-8 max-w-lg mx-auto bg-white shadow-lg p-6 rounded-lg"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-500 text-white text-center py-4">
+        <p>&copy; 2025 Online Ordering System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
